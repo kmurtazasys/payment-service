@@ -1,4 +1,4 @@
-# Kamil Payment Service
+# Payment Service
 
 Payment Processing service with Kafka integration.
 
