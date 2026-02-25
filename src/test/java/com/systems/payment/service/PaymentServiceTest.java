@@ -33,14 +33,14 @@ class PaymentServiceTest {
     
     @Test
     void processPayment_Success() {
-        PaymentRequest request = new PaymentRequest(1L, BigDecimal.TEN, "cust1");
+        PaymentRequest request = new PaymentRequest(1L, BigDecimal.TEN);
         Payment payment = new Payment();
         payment.setPaymentId("pay-123");
         payment.setStatus(PaymentStatus.SUCCESS);
         
         when(paymentRepository.save(any(Payment.class))).thenReturn(payment);
         
-        var result = paymentService.processPayment(request);
+        var result = paymentService.processPayment(request, "1L");
         
         assertNotNull(result);
         assertEquals("pay-123", result.paymentId());

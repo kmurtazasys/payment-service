@@ -31,6 +31,13 @@ CREATE DATABASE payment_db;
 kafka-topics.sh --create --topic settlements --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
 ```
 
+Start ZooKeeper: Run bin/zookeeper-server-start.sh config/zookeeper.properties.
+Start Kafka Broker: In a new terminal, run bin/kafka-server-start.sh config/server.properties.
+
+Verify Installation
+Produce Messages: bin/kafka-console-producer.sh --topic test --bootstrap-server localhost:9092.
+Consume Messages: bin/kafka-console-consumer.sh --topic test --from-beginning --bootstrap-server localhost:9092.
+
 ## Running
 ```bash
 mvn spring-boot:run

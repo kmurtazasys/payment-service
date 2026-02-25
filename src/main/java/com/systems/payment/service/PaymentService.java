@@ -28,14 +28,14 @@ public class PaymentService {
     }
     
     @Transactional
-    public PaymentResponse processPayment(PaymentRequest request) {
+    public PaymentResponse processPayment(PaymentRequest request, String customerId) {
         log.info("Processing payment for order: {}", request.orderId());
         
         try {
             Payment payment = new Payment();
             payment.setPaymentId(UUID.randomUUID().toString());
             payment.setOrderId(request.orderId());
-            payment.setCustomerId(request.customerId());
+            payment.setCustomerId(customerId);
             payment.setAmount(request.amount());
             payment.setStatus(PaymentStatus.SUCCESS);
             

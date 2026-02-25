@@ -1,5 +1,7 @@
 package com.systems.payment.dto;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
 
-public record PaymentRequest(Long orderId, BigDecimal amount, String customerId) {}
+public record PaymentRequest(@NotNull Long orderId, @NotNull BigDecimal amount) {}
